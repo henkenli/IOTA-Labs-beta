@@ -1,0 +1,15 @@
+URI schemes in iOS
+
+Photos app: photos-redirect://
+Videos app: Videos://
+Phone: tel://[phonenumber]
+iMessage: sms://
+Calendar: calshow://
+Reminders: x-apple-reminder://
+Mail: message://
+Maps: maps://
+iTunes Store: itms://
+App Store: itms-apps://
+iBooks: ibooks://
+Game Center: gamecenter://
+Facetime: facetime://
