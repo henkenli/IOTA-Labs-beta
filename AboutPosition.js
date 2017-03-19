@@ -21,22 +21,23 @@ function onExitRange() {
 function onButtonPress() {
 	//called when the user presses the button of a Dot   
 	var coordinates = getUserCoordinates();
-	var diff = LastKnownPosition - coordinates;
-	//var close = abs(diff);
-	//postNote("Köket", "henkenli", "xx." + close );
 
     if (LastKnownPosition == coordinates ) {
-        	setLED('0066ff'); // Blue
-            textToSpeech("<voice-transformation type=\"Soft\" strength=\"90%\">" +
-                 "You called on me. What would you like master?" +
-             "</voice-transformation>");
+        setLED('0066ff'); // Blue
+        textToSpeech("<voice-transformation type=\"Soft\" strength=\"90%\">" +
+             "You called on me. What would you like master?" +
+         "</voice-transformation>"); 
+        
+        postNote("Köket", "henkenli", "LastKnownPosition: LAT:" + 
+            coordinates.latitude + ', LONG:' + coordinates.longitude);
     } 
     else {
         setLED('ff0000'); // Red
         textToSpeech("<voice-transformation type=\"Young\" strength=\"100%\">" +
-                 "I have been moved! Call the police!!" +
-             "</voice-transformation>");
-        // Update LastKnownPosition
-        registerDeveloperVariable("LastKnownPosition", coordinates );
+             "I have been moved! Call the police!!" +
+             "</voice-transformation>"); 
     }
+    
+    // Update LastKnownPosition
+    setDeveloperVariable("LastKnownPosition", coordinates );
 }
