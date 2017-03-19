@@ -1,36 +1,11 @@
-registerAppletDescription('IOTA Labs betatest - Henkenli : AboutPosition');
+The script has a combination of TextToSpeech, the dots position, the LED and a posted not with the current position.
 
-//Registering Persistent Developer Settings
-registerDeveloperVariable("LastKnownPosition", getUserCoordinates());
+Init:		Store the dots position in a DeveloperVariable
 
-function onEnterRange() {
-    //called when you are in range of a Dot
-    setLED('00ff00'); // Green 
-    textToSpeech("<express-as type=\"GoodNews\">" + "Hi again.");
-}
+OnEnter:	Speak a velcome message
 
-function onExitRange() {
-    //called when you exit the range of a Dot
-    setLED('000000');
-    textToSpeech("Leaving already.");
-}
+OnButton:	If the dot is on the same position as when the code was initialized, 
+		it will greet the user and send a note with the coordinates of the dot.
+		If the dot is moved from the first position, the dot will scream about calling the police.
 
-function onButtonPress() {
-	//called when the user presses the button of a Dot   
-	var coordinates = getUserCoordinates();
-
-    if (LastKnownPosition == coordinates ) {
-        	setLED('0066ff'); // Blue
-            textToSpeech("<voice-transformation type=\"Soft\" strength=\"90%\">" +
-                 "You called on me. What would you like master?" +
-             "<voice-transformation>");
-    } 
-    else {
-        setLED('ff0000'); // Red
-        textToSpeech("<voice-transformation type=\"Young\" strength=\"150%\">" +
-                 "I have been moved! Call the police!!" +\
-             "<voice-transformation>");
-        // Update LastKnownPosition
-        registerDeveloperVariable("LastKnownPosition", coordinates );
-    }
-}
+OnExit:		Speak a farewell message
