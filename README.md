@@ -1,6 +1,8 @@
 # IOTA-Labs-beta
 Scripts from the betatest of IOTA Labs dot
 
+See also use case idea: http://dot.nodebb.com/topic/28/owner-and-guest-detection-in-a-shared-summer-cottage-deep-in-the-northern-forests
+
 -----------------
 
 Beta test Week 03 - textToSpeech Functionality
